@@ -24,43 +24,38 @@ formatting.
 
 */
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+import java.io.*;
 
-public class JavaDatatypes {
 
-    static String whoCanFitTheNumber(String numString)
+
+class Solution{
+    public static void main(String []argh)
     {
-        String answer = "";
-        try{
-            long num = Long.parseLong(numString);
-            answer = numString + " can be fitted in:\n";
-            if((num<=Byte.MAX_VALUE) && (num>=Byte.MIN_VALUE)){
-                answer = answer.concat("* byte\n* short\n* int\n* long");
-            }else if((num <= Short.MAX_VALUE) && (num >= Short.MIN_VALUE)){
-                answer = answer.concat("* short\n* int\n* long");
-            }else if((num <= Integer.MAX_VALUE) && (num >= Integer.MIN_VALUE)){
-                    answer = answer.concat("* int\n* long");
-            }else{
-                    answer = answer.concat("* long");
+
+
+
+        Scanner sc = new Scanner(System.in);
+        int t=sc.nextInt();
+
+        for(int i=0;i<t;i++)
+        {
+
+            try
+            {
+                long num=sc.nextLong();
+                System.out.println(num+" can be fitted in:");
+                if((num<=Byte.MAX_VALUE) && (num>=Byte.MIN_VALUE))System.out.println("* byte");
+                if((num<=Short.MAX_VALUE) && (num>=Short.MIN_VALUE))System.out.println("* short");
+                if((num<=Integer.MAX_VALUE) && (num>=Integer.MIN_VALUE))System.out.println("* int");
+                if((num<=Long.MAX_VALUE) && (num>=Long.MIN_VALUE))System.out.println("* long");
+                //Complete the code-2,147,483,648 to 2,147,483,647
             }
-        }catch (NumberFormatException e){
-            answer = numString+" can't be fitted anywhere.";
-        }
-        return answer;
-    }
-    public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution.
-        */
-        Scanner scanner = new Scanner(System.in);
-        int numTestCases = scanner.nextInt() ;
-        scanner.nextLine();
-        for(int i=0; i<numTestCases;i++){
-            String numString = scanner.nextLine();
-            System.out.println(whoCanFitTheNumber(numString));
+            catch(Exception e)
+            {
+                System.out.println(sc.next()+" can't be fitted anywhere.");
+            }
+
         }
     }
 }
